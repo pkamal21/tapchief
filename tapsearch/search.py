@@ -1,7 +1,7 @@
 class Search:
     def __init__(self, text, word):
         self.text = text
-        
+
         self.word = word
     def search(self):
         self.text = self.text.lower()
@@ -16,13 +16,13 @@ class Search:
                     li = [0] * l
                     dic[word] = li
                     dic[word][para] = 1
-                    
+
                 else:
                     dic[word][para] += 1
-        found = dic[self.word]
-        found_index = list(zip(found, list(range(l))))
-        found_index.sort(key = lambda elem:elem[0], reverse=True)
-        ans = [i[1]+1 for i in found_index]
+        # found_index = list(zip(found, list(range(l))))
+        # found_index.sort(key = lambda elem:elem[0], reverse=True)
+        a = dic[self.word]
+        ans = [i+1 for i in range(len(a)) if a[i] > 0]
         return (ans[:10])
 
     def paras_no(self):
